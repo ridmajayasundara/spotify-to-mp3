@@ -17,7 +17,7 @@ CLIENT_SECRET = os.getenv("CLIENT_SECRET", "")
 OUTPUT_FILE_NAME = "track_info.csv"
 
 # change for your target playlist
-PLAYLIST_LINK = 'https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M'
+PLAYLIST_LINK = 'https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M?si=b17f987ba59f490a'
 ################################################################################
 
 
@@ -28,4 +28,16 @@ client_credentials_manager = SpotifyClientCredentials(
 
 # create spotify session object
 session = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+
+# get uri from https link
+if match := re.match(r"https://open.spotify.com/playlist/(.*)\?", PLAYLIST_LINK):
+    playlist_uri = match.groups()[0]
+else:
+    raise ValueError("Please add complete link to PLAYLIST_LINK (copy from app, not the web): Expected format: https://open.spotify.com/playlist/...")
+
+
+
+
+
+
 
