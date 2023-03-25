@@ -1,1 +1,8 @@
+#.env file to store spotify developer credentials 
 .env
+
+#.csv file to store the playlist
+spotify_playlist_song-and-artist.csv
+
+#cache that stores access-token
+.cache
