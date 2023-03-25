@@ -1,16 +1,17 @@
 import requests
-from bs4 import BeautifulSoup
 
-spotifyPlaylistLink = 'https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M'
+import os
+from dotenv import load_dotenv
 
-response = requests.get(spotifyPlaylistLink)
+load_dotenv() 
+################################################################################
 
-if response.status_code == 200:
-    soup = BeautifulSoup(response.content, "html.parser")
-    print(soup)
-    song_list = soup.find_all("li", class_="song")
+CLIENT_ID = os.getenv("CLIENT_ID", "")
+CLIENT_SECRET = os.getenv("CLIENT_SECRET", "")
+OUTPUT_FILE_NAME = "track_info.csv"
 
-    for song in song_list:
-        print(song.text)
-else:
-    print(f"Error: {response.status_code}")
+# change for your target playlist
+PLAYLIST_LINK = 'https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M'
+################################################################################
+
+
