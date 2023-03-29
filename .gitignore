@@ -6,3 +6,9 @@ spotify_playlist_song-and-artist.csv
 
 #cache that stores access-token
 .cache
+
+#file used for testing purposes
+test.py
+
+#file that contains youtube links
+song_ytd_links.txt
